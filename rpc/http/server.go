@@ -7,13 +7,14 @@ import (
 	"net/rpc"
 )
 
-//作为一个服务必须要有一个类型
-//func () NAME (ARGS TYPE,REPLY *TYPE) error
-// （）接收者， NAME 方法名称、
+/*作为一个服务必须要有一个类型
+func () NAME (ARGS TYPE,REPLY *TYPE) error
+（）接收者， NAME 方法名称、
+*/
+
 type Args struct {
 	A, B int
 }
-
 type Math int
 
 func (m *Math) Multiply(args *Args, reply *int) error {
@@ -31,6 +32,7 @@ func (m *Math) Divide(args *Args, quo *Quotient) error {
 	}
 	quo.Quo = args.A / args.B
 	quo.Rem = args.A % args.B
+	return nil
 }
 
 func main() {
@@ -40,7 +42,7 @@ func main() {
 	rpc.HandleHTTP()
 	err := http.ListenAndServe(":1234", nil)
 	if err != nil {
-		fmt.Fprintln(err.Error())
+		fmt.Println(err.Error())
 	}
 
 }

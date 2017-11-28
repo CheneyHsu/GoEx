@@ -20,7 +20,8 @@ type Quotient struct {
 func main() {
 
 	if len(os.Args) != 2 {
-		fmt.println("Usage:", os.Args[0], "server")
+		fmt.Println("Usage:", os.Args[0], "server")
+		os.Exit(1)
 	}
 	serverAddr := os.Args[1]
 
@@ -28,19 +29,19 @@ func main() {
 	if err != nil {
 		log.Fatal("dialing:", err)
 	}
-	args := Args(17, 8)
+	args := Args{17, 8}
 	var reply int
-	err = client.Call("Math.Multiply", args, reply)
+	err = client.Call("Math.Multiply", args, &reply)
 	if err != nil {
 		log.Fatal("Match error:", err)
 	}
 
-	fmt.Fprintf("Math: %d*%d=%d\n", args.A, args.B, reply)
+	fmt.Println("Math: %d*%d=%d\n", args.A, args.B, reply)
 
 	var quo Quotient
-	err = client.Call("Math.Divide", agrs, &quo)
+	err = client.Call("Math.Divide", args, &quo)
 	if err != nil {
 		log.Fatal("Match error:", err)
 	}
-	fmt.Fprintf("Math: %d/%d=%d remainder %d\n", args.A, args.B, quo.Quo, quo.Rem)
+	fmt.Println("Math: %d/%d=%d remainder %d\n", args.A, args.B, quo.Quo, quo.Rem)
 }
