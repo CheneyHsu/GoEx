@@ -5,7 +5,9 @@ import (
 )
 
 func main() {
-
-	fmt.Println("Hello go go!")
-
+	i := 0
+Here:
+	fmt.Println(i)
+	i++
+	goto Here
 }
