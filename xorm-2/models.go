@@ -24,6 +24,16 @@ func init() {
 	if err = x.Sync(new(Account)); err != nil {
 		log.Fatalf("Fail to sync database: %v\n", err)
 	}
+
+	//记录日志
+	//	f, err := os.Create("sql.log")
+	//	if err != nil {
+	//		log.Fatalf("Fail to create log file:  %v\n", err)
+	//	}
+	//	x.Logger = xorm.NewSimpleLogger(f)
+	//	x.ShowSQL = true
+
+	//设置默认LRU缓存
 }
 
 func getAccountCount() (int64, error) {

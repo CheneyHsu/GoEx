@@ -6,7 +6,7 @@ import (
 )
 
 var printFn = func(idx int, bean interface{}) error {
-	fmt.Printf("%d: %v\n", idx, bean.(*Account))
+	fmt.Printf("%d: %#v\n", idx, bean.(*Account))
 	return nil
 }
 
@@ -42,4 +42,15 @@ func main() {
 		}
 		fmt.Printf("%#v\n", a)
 	}
+	//查询特定字段
+	fmt.Println("\nOnly query name:")
+	x.Cols("Name").Iterate(new(Account), printFn)
+
+	//排除特殊字段
+	fmt.Println("\nOuery all but name:")
+	x.Omit("name").Iterate(new(Account), printFn)
+
+	//查询结果偏移
+	fmt.Println("\nOffset 2 and limit 3:")
+	x.Limit(3, 2).Iterate(new(Account), printFn)
 }
