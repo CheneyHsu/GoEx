@@ -85,12 +85,22 @@ func makeTransfer(id1, id2 int64, balance float64) error {
 	}
 	a1.Balance -= balance
 	a2.Balance += balance
-	if _, err = x.Update(a1); err != nil {
-		return err
-	} else if _, err = x.Update(a2); err != nil {
+
+	sess := x.NewSession()
+	defer sess.Close()
+
+	if err = sess.Begin(); err != nil {
 		return err
 	}
-	return nil
+
+	if _, err = sess.Update(a1); err != nil {
+		sess.Rollback()
+		return err
+	} else if _, err = sess.Update(a2); err != nil {
+		sess.Rollback()
+		return err
+	}
+	return sess.Commit()
 }
 
 func getAccountsAscId() (as []*Account, err error) {
