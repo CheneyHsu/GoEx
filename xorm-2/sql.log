@@ -1,0 +1,17 @@
+[xorm] [info]  2017/12/18 16:12:44.096154 [SQL] SELECT count(*) FROM `account`
+[xorm] [info]  2017/12/18 16:12:44.096589 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe0", 0, 1}
+[xorm] [info]  2017/12/18 16:12:44.111682 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe1", 100, 1}
+[xorm] [info]  2017/12/18 16:12:44.176070 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe2", 200, 1}
+[xorm] [info]  2017/12/18 16:12:44.193560 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe3", 300, 1}
+[xorm] [info]  2017/12/18 16:12:44.262095 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe4", 400, 1}
+[xorm] [info]  2017/12/18 16:12:44.280892 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe5", 500, 1}
+[xorm] [info]  2017/12/18 16:12:44.315560 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe6", 600, 1}
+[xorm] [info]  2017/12/18 16:12:44.333778 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe7", 700, 1}
+[xorm] [info]  2017/12/18 16:12:44.376605 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe8", 800, 1}
+[xorm] [info]  2017/12/18 16:12:44.393660 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe9", 900, 1}
+[xorm] [info]  2017/12/18 16:12:44.458486 [SQL] INSERT INTO `account` (`name`,`balance`,`version`) VALUES (?, ?, ?) []interface {}{"joe10", 1000, 1}
+[xorm] [info]  2017/12/18 16:12:44.476065 [SQL] SELECT `id`, `name`, `balance`, `version` FROM `account`
+[xorm] [info]  2017/12/18 16:12:44.476601 [SQL] SELECT `id`, `name`, `balance`, `version` FROM `account`
+[xorm] [info]  2017/12/18 16:12:44.476967 [SQL] SELECT `name` FROM `account`
+[xorm] [info]  2017/12/18 16:12:44.477261 [SQL] SELECT `id`, `balance`, `version` FROM `account`
+[xorm] [info]  2017/12/18 16:12:44.477692 [SQL] SELECT `id`, `name`, `balance`, `version` FROM `account` LIMIT 3 OFFSET 2
